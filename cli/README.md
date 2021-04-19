@@ -57,6 +57,8 @@ You can create a native executable using:
 
 Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
 
+Make sure that your docker is configured with 4GB of memory at least
+
 ```shell script
 ../gradlew build -Dquarkus.package.type=native -Dquarkus.native.container-build=true
 ```
