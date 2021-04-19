@@ -1,7 +1,8 @@
-import "./App.css";
+import "./App.scss";
 import useTest from "./DirectoryHook";
 import {useState} from "react";
 import moment from "moment";
+import { GoSearch } from "react-icons/go";
 
 export default function App() {
     const [path, setPath] = useState('');
@@ -11,14 +12,14 @@ export default function App() {
     }
     return (
         <div className="App">
-            <h1>Directory List Api</h1>
-            <div>
+            <div className="webflow-style-input">
                 <input type="text"
                        value={path}
                        name="path"
+                       placeholder="directory path"
                        onChange={(e) => setPath(e.target.value)} id="path"/>
 
-                <button onClick={() => handleClickEvent()}>Search</button>
+                <button onClick={() => handleClickEvent()}><GoSearch/></button>
             </div>
             {(() => {
                 if (errorMessage) {

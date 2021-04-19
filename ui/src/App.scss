@@ -1,0 +1,104 @@
+.App {
+  text-align: center;
+}
+
+/* Table Styles */
+
+.table-wrapper{
+  margin: 0.4rem 0.4rem 0.4rem;
+  box-shadow: 0px 2px 10px rgba( 0, 0, 0, 0.2 );
+  padding: 0.4rem;
+}
+
+.fl-table {
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: normal;
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+  background-color: white;
+}
+
+.fl-table td, .fl-table th {
+  text-align: center;
+  padding: 8px;
+}
+
+.fl-table td {
+  border-right: 1px solid #f8f8f8;
+  font-size: 12px;
+}
+
+.fl-table thead th {
+  color: #ffffff;
+  background: #4FC3A1;
+}
+
+
+.fl-table thead th:nth-child(odd) {
+  color: #ffffff;
+  background: #324960;
+}
+
+.fl-table tr:nth-child(even) {
+  background: #F8F8F8;
+}
+
+//input
+
+//reset
+input { border-style: none; background: transparent; outline: none; }
+button { padding: 0; background: none; border: none; outline: none; }
+
+// colors
+$input-background: #324960;
+$input-text-inactive: #BFD2FF;
+$input-text-active: #4FC3A1;
+
+// gradient animation
+@keyframes gradient {
+  0%{background-position:0 0}
+  100%{background-position:100% 0}
+}
+
+.webflow-style-input {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  border-radius: 2px;
+  padding: 1.4rem 2rem 1.6rem 0;
+  margin: 0;
+  background: $input-background;
+}
+
+.webflow-style-input input {
+  flex-grow: 1;
+  color: $input-text-active;
+  border-color: $input-background;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  vertical-align: middle;
+  text-align: right;
+  padding-right: 1.4rem;
+&::-webkit-input-placeholder {
+   color: $input-text-inactive;
+ }
+}
+
+.webflow-style-input button {
+  color:  $input-text-inactive;
+  font-size: 2.0rem;
+  line-height: 1.0rem;
+  vertical-align: middle;
+  transition: color .25s;
+  background: $input-background;
+&:hover {
+   color: $input-text-active;
+ }
+}
+
+
+
