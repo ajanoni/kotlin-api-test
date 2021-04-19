@@ -2,13 +2,13 @@
 
 ## Generated artifacts will be available in the BUILD directory
 
-###Native cli run example
+### Native cli run example
 
 ```shell script
 ./cli-1.0-SNAPSHOT-runner listdir --path=/testdir
 ```
 
-###Uber jar cli run example (build/quarkus-app)
+### Uber jar cli run example (build/quarkus-app)
 
 ```shell script
 java -jar quarkus-run.jar listdir --path=/testdir
