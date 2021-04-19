@@ -15,13 +15,12 @@ import javax.ws.rs.QueryParam
 import javax.ws.rs.core.MediaType
 import javax.ws.rs.core.Response
 
-
 @Path("/directory")
 class DirectoryResource {
 
     @field:Default
     @field:Inject
-    protected open lateinit var service: DirectoryService
+    lateinit var service: DirectoryService
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -40,8 +39,7 @@ class DirectoryResource {
 
     @ServerExceptionMapper
     fun validationException(ex: ConstraintViolationException): Response? {
-        val messages = ex.constraintViolations.map { it -> "\"${it.message}\"" }
-            .joinToString(separator = ",")
+        val messages = ex.constraintViolations.joinToString(separator = ",") { "\"${it.message}\"" }
         return Response.status(Response.Status.BAD_REQUEST)
             .entity("{ \"messages\": [$messages] }")
             .build()

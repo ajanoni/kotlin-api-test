@@ -27,7 +27,7 @@ export default (): [(id: string) => void, FsResult, string] => {
                     if (error.response && error.response.data) {
                         setErrorMsg(error.response.data.messages);
                     } else {
-                        setErrorMsg("Unexpected error");
+                        setErrorMsg("Unexpected error.");
                     }
                     setFsResult(initialState);
                 });

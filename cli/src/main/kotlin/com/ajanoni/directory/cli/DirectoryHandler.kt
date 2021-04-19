@@ -4,7 +4,6 @@ import com.ajanoni.directory.cli.data.FsSearchResult
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient
 import javax.ws.rs.*
 
-
 @Path("/directory")
 @RegisterRestClient(configKey="directory-api")
 interface DirectoryHandler {

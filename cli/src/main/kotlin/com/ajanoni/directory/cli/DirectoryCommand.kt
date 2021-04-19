@@ -15,10 +15,10 @@ class DirectoryCommand : Runnable {
 
     @field:Inject
     @field:RestClient
-    protected open lateinit var directoryHandler: DirectoryHandler
+    lateinit var directoryHandler: DirectoryHandler
 
     @field:Inject
-    protected open lateinit var objectMapper: ObjectMapper
+    lateinit var objectMapper: ObjectMapper
 
     @CommandLine.Option(names = ["--path"], description = ["Directory path"], required = true)
     lateinit var directoryPath: String
@@ -51,7 +51,7 @@ class DirectoryCommand : Runnable {
         println(separator)
         val dateFormat = DateTimeFormatter
             .ofPattern("yyyy-MM-dd HH:mm:ss")
-            .withZone(ZoneId.systemDefault());
+            .withZone(ZoneId.systemDefault())
         System.out.format("%-50s%-15s%-15s%n", "File", "Size (Bytes)", "Last Modification")
         println(separator)
         fsResult.items.forEach {

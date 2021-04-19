@@ -14,7 +14,7 @@ class EntryCommand: QuarkusApplication {
 
     @field:Default
     @field:Inject
-    protected open lateinit var factory: CommandLine.IFactory
+    lateinit var factory: CommandLine.IFactory
 
     override fun run(vararg args: String?): Int {
         return CommandLine(this, factory).execute(*args)

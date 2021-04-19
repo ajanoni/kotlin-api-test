@@ -25,7 +25,7 @@ class DirectoryService {
         val path = Paths.get("", directory)
 
         if (!Files.exists(path) || !Files.isDirectory(path)) {
-            throw DirectoryNotFoundException("Directory not found: $path");
+            throw DirectoryNotFoundException("Directory not found: $path")
         }
 
         val fsItems =  Files.list(path)

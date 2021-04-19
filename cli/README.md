@@ -42,7 +42,7 @@ the dependencies are copied into the `build/quarkus-app/lib/` directory.
 If you want to build an _über-jar_, execute the following command:
 
 ```shell script
-./gradlew build -Dquarkus.package.type=uber-jar
+../gradlew build -Dquarkus.package.type=uber-jar
 ```
 
 The application is now runnable using `java -jar build/quarkus-app/quarkus-run.jar`.
@@ -52,13 +52,13 @@ The application is now runnable using `java -jar build/quarkus-app/quarkus-run.j
 You can create a native executable using:
 
 ```shell script
-./gradlew build -Dquarkus.package.type=native
+../gradlew build -Dquarkus.package.type=native
 ```
 
 Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
 
 ```shell script
-./gradlew build -Dquarkus.package.type=native -Dquarkus.native.container-build=true
+../gradlew build -Dquarkus.package.type=native -Dquarkus.native.container-build=true
 ```
 
 You can then execute your native executable with: `./build/cli-1.0-SNAPSHOT-runner`
@@ -86,5 +86,5 @@ As picocli applications will often require arguments to be passed on the command
 via:
 
 ```shell script
-./gradlew quarkusDev --quarkus-args='hello --first-name=Quarky'
+../gradlew quarkusDev --quarkus-args='hello --first-name=Quarky'
 ```

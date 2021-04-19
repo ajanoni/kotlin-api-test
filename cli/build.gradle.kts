@@ -4,21 +4,21 @@ plugins {
     id("io.quarkus")
 }
 
+group = "com.ajanoni.directory.cli"
+version = "1.0-SNAPSHOT"
+
 val quarkusPlatformGroupId: String by project
 val quarkusPlatformArtifactId: String by project
 val quarkusPlatformVersion: String by project
 
-group = "com.ajanoni.directory.cli"
-version = "1.0-SNAPSHOT"
-
 dependencies {
     implementation(enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"))
+
     implementation("io.quarkus:quarkus-picocli")
     implementation("io.quarkus:quarkus-kotlin")
     implementation("io.quarkus:quarkus-rest-client")
     implementation("io.quarkus:quarkus-rest-client-jackson")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("io.quarkus:quarkus-arc")
 
     testImplementation("io.quarkus:quarkus-junit5")
