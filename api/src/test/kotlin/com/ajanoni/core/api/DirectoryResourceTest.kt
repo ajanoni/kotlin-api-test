@@ -37,7 +37,7 @@ class DirectoryResourceTest {
             .`when`().get("/directory?directoryPath=notfoundidr")
             .then()
             .statusCode(404)
-            .body(`is`("{ \"messages\": [\"Directory not found: notfoundidr\"] }"))
+            .body(`is`("{ \"messages\": [\"Directory not found: /notfoundidr\"] }"))
     }
 
 }

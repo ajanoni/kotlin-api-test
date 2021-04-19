@@ -4,6 +4,7 @@ import com.ajanoni.core.directory.service.data.FsItem
 import com.ajanoni.core.directory.service.data.FsSearchResult
 import com.ajanoni.core.directory.service.exception.DirectoryNotFoundException
 import java.nio.file.Files
+import java.nio.file.NoSuchFileException
 import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.stream.Collectors
@@ -22,19 +23,21 @@ class DirectoryService {
     }
 
     fun list(directory: String) : FsSearchResult {
-        val path = Paths.get("", directory)
+        val path = Paths.get("/", directory).normalize()
 
-        if (!Files.exists(path) || !Files.isDirectory(path)) {
+        try {
+            val realPath = path.toRealPath()
+
+            val fsItems =  Files.list(realPath)
+                .sorted(fileOrdering)
+                .map(mapping)
+                .collect(Collectors.toList())
+
+            val totalSize = fsItems.sumOf { it.size }
+
+            return FsSearchResult(fsItems, fsItems.size.toLong(), totalSize)
+        } catch(e : NoSuchFileException) {
             throw DirectoryNotFoundException("Directory not found: $path")
         }
-
-        val fsItems =  Files.list(path)
-            .sorted(fileOrdering)
-            .map(mapping)
-            .collect(Collectors.toList())
-
-        val totalSize = fsItems.sumOf { it.size }
-
-        return FsSearchResult(fsItems, fsItems.size.toLong(), totalSize)
     }
 }
